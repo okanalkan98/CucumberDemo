@@ -38,4 +38,15 @@ public class stepDefinition extends TestRunner{
 	    // Write code here that turns the phrase above into concrete actions
 		Assert.assertTrue(driver.getTitle().contains("porsche"));
 	}
+	
+	@When("^I enter a \"([^\"]*)\" to serach$")
+	public void i_enter_a_to_serach(String keyword) {
+	    search_box = driver.findElement(By.name("q"));
+	    search_box.sendKeys(keyword);   
+	}
+
+	@Then("^I should be able to see the title contains the \"([^\"]*)\"$")
+	public void i_should_be_able_to_see_the_title_contains_the(String keyword) {
+		Assert.assertTrue(driver.getTitle().contains(keyword));
+	}
 }
