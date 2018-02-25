@@ -3,6 +3,7 @@ package runnerPackage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
@@ -18,5 +19,10 @@ public class TestRunner extends AbstractTestNGCucumberTests{
 		driver=new ChromeDriver();
 		System.out.println("Set up script is running");
 		System.out.println("My first cucumber test");
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
 	}
 }
